@@ -43,7 +43,7 @@ func init() {
 
 func main() {
 
-	config, err := LoadConfig(configPath)
+	config, err := util.LoadConfig(configPath)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -51,7 +51,7 @@ func main() {
 	for {
 		requestBody := util.GetRandomMessage(messages)
 		sendCrackController(config.WebhookURL, requestBody)
-		time.Sleep(config.Interval * time.Minute)
+		time.Sleep(time.Duration(config.Interval) * time.Minute)
 	}
 
 }

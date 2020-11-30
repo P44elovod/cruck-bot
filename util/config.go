@@ -1,14 +1,12 @@
-package main
+package util
 
 import (
-	"time"
-
 	"github.com/spf13/viper"
 )
 
 type Config struct {
-	WebhookURL string        `mapstructure:"WEBHOOK_URL"`
-	Interval   time.Duration `mapstructure:"INTERVAL"`
+	WebhookURL string `mapstructure:"WEBHOOK_URL"`
+	Interval   int    `mapstructure:"INTERVAL"`
 }
 
 func NewConfig() *Config {
